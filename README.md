@@ -1,4 +1,10 @@
 # Vangla infosüsteemi andmebaas
 
 ## ERD Diagramm
-![Vangla ERD](erd_diagram.png)
+![Vangla ERD](Vangla.png)
+
+
+# Firma infosüsteemi andmebaas
+
+## ERD Diagramm
+![Firma ERD](Firma.png)
