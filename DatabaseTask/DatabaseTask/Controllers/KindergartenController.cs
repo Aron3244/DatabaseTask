@@ -135,7 +135,7 @@ namespace DatabaseTask.Controllers
             return View(kindergarten);
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var kindergarten = await _context.Kindergartens.FindAsync(id);
