@@ -6,62 +6,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DatabaseTask.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class Kindergarten : Migration
+    public partial class Prison : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropTable(
-                name: "Crimes");
-
-            migrationBuilder.DropTable(
-                name: "Punishments");
-
-            migrationBuilder.DropTable(
-                name: "Shifts");
-
-            migrationBuilder.DropTable(
-                name: "Visitings");
-
-            migrationBuilder.DropTable(
-                name: "Guards");
-
-            migrationBuilder.DropTable(
-                name: "Guests");
-
-            migrationBuilder.DropTable(
-                name: "Prisoners");
-
-            migrationBuilder.DropTable(
-                name: "Chambers");
-
-            migrationBuilder.DropTable(
-                name: "Blocks");
-
-            migrationBuilder.DropTable(
-                name: "Prisons");
-
-            migrationBuilder.CreateTable(
-                name: "Kindergartens",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ChildrenCount = table.Column<int>(type: "int", nullable: false),
-                    KindergartenName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TeacherName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Kindergartens", x => x.Id);
-                });
-        }
-
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Kindergartens");
@@ -89,9 +37,9 @@ namespace DatabaseTask.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Capacity = table.Column<int>(type: "int", nullable: true),
+                    PrisonName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     Location = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    PrisonName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true)
+                    Capacity = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -104,10 +52,10 @@ namespace DatabaseTask.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PrisonId = table.Column<int>(type: "int", nullable: true),
-                    BlockName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     BlockNumber = table.Column<int>(type: "int", nullable: true),
-                    SecurityLevel = table.Column<int>(type: "int", nullable: true)
+                    BlockName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    SecurityLevel = table.Column<int>(type: "int", nullable: true),
+                    PrisonId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -125,13 +73,13 @@ namespace DatabaseTask.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PrisonId = table.Column<int>(type: "int", nullable: true),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    JobTitle = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    JobTitle = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PrisonId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -149,10 +97,10 @@ namespace DatabaseTask.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BlockId = table.Column<int>(type: "int", nullable: true),
-                    Capacity = table.Column<int>(type: "int", nullable: true),
                     ChamberNumber = table.Column<int>(type: "int", nullable: true),
-                    FloorNumber = table.Column<int>(type: "int", nullable: true)
+                    FloorNumber = table.Column<int>(type: "int", nullable: true),
+                    Capacity = table.Column<int>(type: "int", nullable: true),
+                    BlockId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -170,12 +118,12 @@ namespace DatabaseTask.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    GuardId = table.Column<int>(type: "int", nullable: true),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    GuardId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -193,13 +141,13 @@ namespace DatabaseTask.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ChamberId = table.Column<int>(type: "int", nullable: true),
-                    ArivelDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    BirthOfDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    BirthOfDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ArivelDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     PersonalId = table.Column<int>(type: "int", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true)
+                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    ChamberId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -217,13 +165,13 @@ namespace DatabaseTask.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PrisonerId = table.Column<int>(type: "int", nullable: true),
-                    ArivelDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     GradeOfCrime = table.Column<int>(type: "int", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    ArivelDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     PersonalId = table.Column<int>(type: "int", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true)
+                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    PrisonerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -241,13 +189,13 @@ namespace DatabaseTask.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PrisonerId = table.Column<int>(type: "int", nullable: true),
-                    ArivelDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    PersonalId = table.Column<int>(type: "int", nullable: true),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    TypeOfPunishment = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    ArivelDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PersonalId = table.Column<int>(type: "int", nullable: true),
                     Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    TypeOfPunishment = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                    PrisonerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -265,12 +213,12 @@ namespace DatabaseTask.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    GuestId = table.Column<int>(type: "int", nullable: true),
-                    PrisonerId = table.Column<int>(type: "int", nullable: true),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     RegistryDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true)
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
+                    GuestId = table.Column<int>(type: "int", nullable: true),
+                    PrisonerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -331,6 +279,58 @@ namespace DatabaseTask.Data.Migrations
                 name: "IX_Visitings_PrisonerId",
                 table: "Visitings",
                 column: "PrisonerId");
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Crimes");
+
+            migrationBuilder.DropTable(
+                name: "Punishments");
+
+            migrationBuilder.DropTable(
+                name: "Shifts");
+
+            migrationBuilder.DropTable(
+                name: "Visitings");
+
+            migrationBuilder.DropTable(
+                name: "Guards");
+
+            migrationBuilder.DropTable(
+                name: "Guests");
+
+            migrationBuilder.DropTable(
+                name: "Prisoners");
+
+            migrationBuilder.DropTable(
+                name: "Chambers");
+
+            migrationBuilder.DropTable(
+                name: "Blocks");
+
+            migrationBuilder.DropTable(
+                name: "Prisons");
+
+            migrationBuilder.CreateTable(
+                name: "Kindergartens",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ChildrenCount = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KindergartenName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TeacherName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kindergartens", x => x.Id);
+                });
         }
     }
 }
