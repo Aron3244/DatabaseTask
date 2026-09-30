@@ -1,5 +1,6 @@
 ﻿using DatabaseTask.Core.Domain;
 using Microsoft.EntityFrameworkCore;
+using static DatabaseTask.Core.Domain.DatabaseTask;
 
 
 namespace DatabaseTask.Data
@@ -9,17 +10,16 @@ namespace DatabaseTask.Data
         public DatabaseTaskDbContext(DbContextOptions<DatabaseTaskDbContext> options)
             : base(options) { }
 
-        public DbSet<Kindergarten> DatabaseTask { get; set; }
-        public DbSet<Kindergarten> Prisoner { get; set; }
-        public DbSet<Kindergarten> Block { get; set; }
-        public DbSet<Kindergarten> Chamber { get; set; }
-        public DbSet<Kindergarten> Crime { get; set; }
-        public DbSet<Kindergarten> Punishment { get; set; }
-        public DbSet<Kindergarten> Guest { get; set; }
-        public DbSet<Kindergarten> Visiting { get; set; }
-        public DbSet<Kindergarten> Guard { get; set; }
-        public DbSet<Kindergarten> Shift { get; set; }
-        
-        
+
+        public DbSet<Prisoner> Prisoners { get; set; }
+        public DbSet<Block> Blocks { get; set; }
+        public DbSet<Chamber> Chambers { get; set; }
+        public DbSet<Crime> Crimes { get; set; }
+        public DbSet<Punishment> Punishments { get; set; }
+        public DbSet<Guest> Guests { get; set; }
+        public DbSet<Visiting> Visitings { get; set; }
+        public DbSet<Guard> Guards { get; set; }
+        public DbSet<Shift> Shifts { get; set; }
+
     }
 }
