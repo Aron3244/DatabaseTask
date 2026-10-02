@@ -16,5 +16,9 @@ namespace DatabaseTask.Core.Domain
         public int BookingId { get; set; }
 
         public DateTime Date { get; set; }
+
+        public Services Services { get; set; }
+        public Booking Booking { get; set; }
+
     }
 }

@@ -20,6 +20,9 @@ namespace DatabaseTask.Core.Domain
         public  DateTime EndDate { get; set; }
         public  string PersonalId { get; set; }
         public int HotelID { get; set; }
+   
+
+        public ICollection<Hotel> Prisoners { get; set; } = new List<Hotel>();
 
     }
 }

@@ -19,5 +19,8 @@ namespace DatabaseTask.Core.Domain
         public int EmployeeId { get; set; }
         public int GuestId { get; set; }
         public int BookingId { get; set; }
+
+        public Booking Booking { get; set; }
+
     }
 }
