@@ -8,16 +8,17 @@ namespace DatabaseTask.Data
     {
         public DatabaseTaskDbContext(DbContextOptions<DatabaseTaskDbContext> options)
             : base(options) { }
-        public DbSet<Prison> Prisones { get; set; }
-        public DbSet<Block> Blocks { get; set; }
-        public DbSet<Chamber> Chambers { get; set; }
-        public DbSet<Prisoner> Prisoners { get; set; }
-        public DbSet<Crime> Crimes { get; set; }
-        public DbSet<Punishment> Punishments { get; set; }
-        public DbSet<Guest> Guests { get; set; }
-        public DbSet<Visiting> Visitings { get; set; }
-        public DbSet<Guard> Guards { get; set; }
-        public DbSet<Shift> Shifts { get; set; }
+        public DbSet<Bookable> Bookables { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Guests> Guestss { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Payroll> Payrolls { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Services> Servicess { get; set; }
+        public DbSet<ServicesOrder> ServicesOrders { get; set; }
+ 
 
     }
 }
