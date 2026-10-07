@@ -17,8 +17,9 @@ namespace DatabaseTask.Core.Domain
         public string Email { get; set; }
         public string PersonalID { get; set; }
         public string Citizenship { get; set; }
- 
 
-        public ICollection<Booking> ServicesOrders { get; set; } = new List<Booking>();
+
+        public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+        public ICollection<Payment> Payments { get; set; } = new List<Payment>();
     }
 }
