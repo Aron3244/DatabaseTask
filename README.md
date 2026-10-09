@@ -1,10 +1,8 @@
-# Vangla infosüsteemi andmebaas
+
 
 ## ERD Diagramm
-![Vangla ERD](Vangla.png)
+![Airport](airport%20.png)
 
-
-# Firma infosüsteemi andmebaas
 
 ## ERD Diagramm
-![Firma ERD](Firma.png)
+![Airport](Airport.png)
